@@ -1,7 +1,9 @@
 import os
 import zipfile
+from expdataloader import *
 
-def get_pairs(video_dir):
+
+def get_video_paths(video_dir):
     res = []
     for line in open("run_pair.txt").readlines():
         pair = line.strip()
@@ -31,24 +33,24 @@ def compress_files_to_zip(file_paths, zip_file):
 
 class Zip:
     def diffswap(self):
-        video_paths = get_pairs("diffswap")
-        compress_files_to_zip(video_paths, "diffswap.zip")
+        video_paths = get_video_paths("diffswap")
+        compress_files_to_zip(video_paths, "data/diffswap.zip")
 
     def heser(self):
-        video_paths = get_pairs("heser")
-        compress_files_to_zip(video_paths, "heser.zip")
+        video_paths = get_video_paths("heser")
+        compress_files_to_zip(video_paths, "data/heser.zip")
 
     def deeplivecam(self):
-        video_paths = get_pairs("deeplivecam")
-        compress_files_to_zip(video_paths, "deeplivecam.zip")
+        video_paths = get_video_paths("deeplivecam")
+        compress_files_to_zip(video_paths, "data/deeplivecam.zip")
 
     def faceapt(self):
-        video_paths = get_pairs("faceapt")
-        compress_files_to_zip(video_paths, "face-adapter.zip")
+        video_paths = get_video_paths("faceapt")
+        compress_files_to_zip(video_paths, "data/face-adapter.zip")
 
     def blendface(self):
-        video_paths = get_pairs("blendface")
-        compress_files_to_zip(video_paths, "blendface_unalign.zip")
+        video_paths = get_video_paths("blendface")
+        compress_files_to_zip(video_paths, "data/blendface_unalign.zip")
 
 if __name__ == "__main__":
     zip = Zip()
