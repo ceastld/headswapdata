@@ -1,0 +1,1 @@
+scp ldy@222.195.77.222:/data/ldy/video.zip video.zip
